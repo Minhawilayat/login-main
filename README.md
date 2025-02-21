@@ -54,9 +54,7 @@ The form is styled to be clean and responsive:
 - A modern web browser (Chrome, Firefox, Safari, Edge) that supports JavaScript.
 - Basic understanding of HTML, CSS, and JavaScript if you wish to extend or modify the form.
 
-## 📝 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ---
 
