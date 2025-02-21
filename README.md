@@ -57,5 +57,3 @@ The form is styled to be clean and responsive:
 
 
 ---
-
-Feel free to fork or modify this project to suit your needs. Happy coding!
