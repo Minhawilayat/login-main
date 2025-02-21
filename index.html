@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login-form</title>
+    <link rel="stylesheet" href="style.css">
+     <!----boxicon-------->
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="wrapper">
+        <form action="">
+            <h1 class="h1">Login</h1>
+            <div class="input">
+                <input type="email" id="email" name="email" required placeholder="user name">
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input">
+                <input  type="password" id="password" name="password" required placeholder="password" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+                <div class="remember-forgot">
+                    <label for="">
+                        <input type="checkbox" name="" id="">Remember me</label>
+                        <a href="#">forgot password?</a>
+                </div>
+                <button type="button" onclick="submitLoginForm()" class="btn">Login</button>
+                <div class="register-link">
+                    <p>Don't have an acount?
+                        <a href="file:///C:/Users/Lenovo/Desktop/login-main/index2.html"> Register</a></p>
+                </div>
+            </div>
+        </form>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+</body>
+<script>
+    // Function to handle registration form submission
+    function submitRegistrationForm() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // Clear any previous error messages
+        document.getElementById('error-message').textContent = '';
+
+        // Check if email, password, and confirmPassword are filled
+        if (!email || !password || !confirmPassword) {
+            document.getElementById('error-message').textContent = "Please fill out all fields.";
+            return;
+        }
+
+        // Perform email validation
+        if (!validateEmail(email)) {
+            document.getElementById('error-message').textContent = "Please enter a valid email address.";
+            return;
+        }
+
+        // Check if password and confirm password match
+        if (password !== confirmPassword) {
+            document.getElementById('error-message').textContent = "Passwords do not match.";
+            return;
+        }
+
+        // If everything is valid, log the registration data
+        const registrationData = {
+            email: email,
+            password: password
+        };
+
+        console.log('Registration data submitted:', registrationData);
+
+        // Example: Simulate a successful registration
+        alert("Registration successful!");
+
+        // Reset the form after successful registration
+        document.getElementById('registrationForm').reset();  // Reset form fields
+    }
+
+    // Email validation function
+    function validateEmail(email) {
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    }
+</script>
+
+</html> 
