@@ -3,51 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login-form</title>
+    <title>Login Form</title>
     <link rel="stylesheet" href="style.css">
-     <!----boxicon-------->
-     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <!----boxicon-------->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="wrapper">
         <form action="">
             <h1 class="h1">Login</h1>
             <div class="input">
-                <input type="email" id="email" name="email" required placeholder="user name">
+                <input type="email" id="email" name="email" required placeholder="Email Address">
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input">
-                <input  type="password" id="password" name="password" required placeholder="password" required>
+                <input type="password" id="password" name="password" required placeholder="Password">
                 <i class='bx bxs-lock'></i>
             </div>
-                <div class="remember-forgot">
-                    <label for="">
-                        <input type="checkbox" name="" id="">Remember me</label>
-                        <a href="#">forgot password?</a>
-                </div>
-                <button type="button" onclick="submitLoginForm()" class="btn">Login</button>
-                <div class="register-link">
-                    <p>Don't have an acount?
-                        <a href="file:///C:/Users/Lenovo/Desktop/login-main/index2.html"> Register</a></p>
-                </div>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" id="rememberMe"> Remember me
+                </label>
+                <a href="#">Forgot password?</a>
             </div>
+            <button type="button" onclick="submitLoginForm()" class="btn">Login</button>
+            <div class="register-link">
+                <p>Don't have an account?
+                    <a href="file:///C:/Users/Lenovo/Desktop/login-main/index2.html"> Register</a>
+                </p>
+            </div>
+            <p id="error-message" style="color: red;"></p>
         </form>
-        <p id="error-message" style="color: red;"></p>
     </div>
 </body>
 <script>
-    // Function to handle registration form submission
-    function submitRegistrationForm() {
+    // Function to handle login form submission
+    function submitLoginForm() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
 
-        // Clear any previous error messages
+        // Clear previous error messages
         document.getElementById('error-message').textContent = '';
 
-        // Check if email, password, and confirmPassword are filled
-        if (!email || !password || !confirmPassword) {
+        // Check if email and password are filled
+        if (!email || !password) {
             document.getElementById('error-message').textContent = "Please fill out all fields.";
             return;
         }
@@ -58,25 +57,11 @@
             return;
         }
 
-        // Check if password and confirm password match
-        if (password !== confirmPassword) {
-            document.getElementById('error-message').textContent = "Passwords do not match.";
-            return;
-        }
+        // Simulate login success
+        alert("Login successful!");
 
-        // If everything is valid, log the registration data
-        const registrationData = {
-            email: email,
-            password: password
-        };
-
-        console.log('Registration data submitted:', registrationData);
-
-        // Example: Simulate a successful registration
-        alert("Registration successful!");
-
-        // Reset the form after successful registration
-        document.getElementById('registrationForm').reset();  // Reset form fields
+        // Reset form after successful login
+        document.querySelector('form').reset();
     }
 
     // Email validation function
@@ -85,5 +70,4 @@
         return regex.test(email);
     }
 </script>
-
-</html> 
+</html>
